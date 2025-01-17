@@ -32,10 +32,6 @@ class ThumbnailGenerator {
 
       thumbnailCache[videoPath] = File(thumbnailPath);
     }
-
-    final dir = await getTemporaryDirectory();
-    final l = dir.listSync();
-    print(l);
   }
 
   File? getThumbnail(String videoPath) {

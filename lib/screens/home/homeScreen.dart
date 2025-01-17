@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         return Scaffold(
-          backgroundColor: Colors.black,
+          // backgroundColor: Colors.black,
           appBar: AppBar(
             backgroundColor: Colors.cyanAccent,
             title: const Text(
