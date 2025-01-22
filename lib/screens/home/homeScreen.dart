@@ -27,10 +27,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    checkCameraPermission();
     context.read<HomeBloc>().add(LoadThumbnails());
 
     videoPlayerManager.initialize(context: context);
-    checkCameraPermission();
   }
 
   Future<void> checkCameraPermission() async {
@@ -60,7 +60,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         return Scaffold(
-          // backgroundColor: Colors.black,
           appBar: AppBar(
             backgroundColor: Colors.cyanAccent,
             title: const Text(
@@ -90,6 +89,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       overlay: QrScannerOverlayShape(
                           borderRadius: 15,
                           borderWidth: 15,
+                          overlayColor: Colors.black54,
                           borderColor: Theme.of(context).primaryColor),
                       onQRViewCreated: _onQrCreated,
                     ),
@@ -167,15 +167,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       ),
                     ),
                 ],
-                // if (state is ThumbnailsLoaded) ...[
-                // Positioned(
-                //     bottom: 0,
-                //     left: 0,
-                //     right: 0,
-                //     child: Center(
-                //         child: HistoryWidget(
-                //             thumbnailImages: state.thumbnailImages)))
-                //  ],
               ],
             ),
           ),
